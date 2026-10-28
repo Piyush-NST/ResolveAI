@@ -13,7 +13,7 @@ process restart — and escalates to a human when it can't resolve something saf
   exceeds that loading into memory (`Ran out of memory (used over 512MB)` per Render's own build log).
   Paying for a bigger instance for a portfolio project didn't seem worth it — the demo video above shows
   the exact same system running against the same code. See [Limitations](#limitations).
-- **CI:** ![CI](https://github.com/Samyak2605/SupportMind/actions/workflows/ci.yml/badge.svg)
+- **CI:** ![CI](https://github.com/Piyush-NST/ResolveAI/actions/workflows/ci.yml/badge.svg)
 
 ## Results at a glance
 
