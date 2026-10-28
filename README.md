@@ -1,12 +1,12 @@
 # ResolveAI
 
-**SupportMind** is a customer-support system that goes beyond answering questions: it **resolves**
+**ResolveAI** is a customer-support system that goes beyond answering questions: it **resolves**
 tickets end-to-end. It combines a hybrid-retrieval RAG copilot (semantic + BM25 + cross-encoder
 reranking, with citations) with a **LangGraph resolution agent** that looks up orders, cancels them,
 processes refunds — with a human-approval gate above a configurable dollar amount, durable across a
 process restart — and escalates to a human when it can't resolve something safely.
 
-- **Demo video (v2, agent + HITL approvals):** [watch here](https://github.com/Samyak2605/SupportMind/releases/download/demo-v2/Screen.Recording.2026-07-13.at.2.53.41.PM.mov)
+- **Demo video (v2, agent + HITL approvals):** [watch here](https://github.com/Piyush-NST/ResolveAI/releases/download/demo-v2/Screen.Recording.2026-07-13.at.2.53.41.PM.mov)
 - *(an earlier [v1 RAG-only demo video](https://github.com/user-attachments/assets/193999cd-1caa-4cf0-8e4d-04bf320097d1) exists from before the agent layer was added)*
 - **Live demo:** not deployed — Render's free tier caps web services at 512MB RAM, and this project's
   retrieval stack (sentence-transformer embeddings + cross-encoder reranker + a 122k-chunk index)
@@ -117,13 +117,13 @@ pauses for human approval (large refunds), or escalates. Try, against the seeded
 ## Repository structure
 
 ```text
-SupportMind/
-├── config/supportmind.yaml       # single source of config (retrieval, generation, agent, orders_seed)
+ResolveAI/
+├── config/resolveai.yaml       # single source of config (retrieval, generation, agent, orders_seed)
 ├── data/raw/                     # Bitext support dataset (public benchmark, see Limitations)
 ├── evals/                        # 30-scenario agent eval harness (scenarios, simulated user, judge)
 ├── results/                      # ragas.md, agent_eval.md — generated, never hand-written
 ├── scripts/                      # build_index, seed_orders, run_api, run_evaluation, run_agent_evals
-├── src/supportmind/
+├── src/resolveai/
 │   ├── agent/                    # LangGraph graph, tools, prompts, runtime
 │   ├── orders/                   # SQLAlchemy models, DB session, seed, client (mock OMS)
 │   ├── llm/                      # unified Groq+Gemini client, dev cache

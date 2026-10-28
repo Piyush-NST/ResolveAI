@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from supportmind.evaluation.runner import run_evaluation
+from resolveai.evaluation.runner import run_evaluation
 
 RESULTS_PATH = Path("results/ragas.md")
 

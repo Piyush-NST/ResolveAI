@@ -1,5 +1,5 @@
-from supportmind.models import RetrievedChunk
-from supportmind.retrieval.hybrid import reciprocal_rank_fusion
+from resolveai.models import RetrievedChunk
+from resolveai.retrieval.hybrid import reciprocal_rank_fusion
 
 
 def test_rrf_returns_ranked_chunks():

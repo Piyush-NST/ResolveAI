@@ -6,7 +6,7 @@ import uuid
 import pytest
 from langgraph.checkpoint.sqlite import SqliteSaver
 
-from supportmind.agent.graph import AgentDeps, build_agent_graph
+from resolveai.agent.graph import AgentDeps, build_agent_graph
 from tests.conftest import FakeLLMClient, make_orders_client
 
 

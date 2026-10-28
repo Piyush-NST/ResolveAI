@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from supportmind.agent.tools import cancel_order, escalate_to_human, order_lookup, refund_initiate
+from resolveai.agent.tools import cancel_order, escalate_to_human, order_lookup, refund_initiate
 from tests.conftest import make_orders_client
 
 
@@ -30,7 +30,7 @@ def test_cancel_order_succeeds_when_eligible(orders_client, seeded_order):
 
 
 def test_cancel_order_rejects_ineligible_status(orders_client, seeded_order, agent_config):
-    from supportmind.orders.models import Order
+    from resolveai.orders.models import Order
 
     with orders_client.session_factory() as session:
         order = session.get(Order, seeded_order["order_id"])

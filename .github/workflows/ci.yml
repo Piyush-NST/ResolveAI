@@ -26,7 +26,7 @@ jobs:
 
       - name: Seed a scratch orders DB
         env:
-          SUPPORTMIND_CONFIG_PATH: config/supportmind.yaml
+          RESOLVEAI_CONFIG_PATH: config/resolveai.yaml
         run: PYTHONPATH=src python scripts/seed_orders.py
 
       - name: Run deterministic test suite
@@ -38,5 +38,5 @@ jobs:
           # speed; they run locally. The full 30-scenario live eval (real Groq
           # + Gemini) also runs locally via scripts/run_agent_evals.py and its
           # results are committed, not regenerated in CI.
-          SUPPORTMIND_CONFIG_PATH: config/supportmind.yaml
+          RESOLVEAI_CONFIG_PATH: config/resolveai.yaml
         run: PYTHONPATH=src python -m pytest tests/ -m "not requires_index" -q

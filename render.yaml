@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: supportmind
+    name: resolveai
     env: docker
     dockerfilePath: ./Dockerfile
     plan: free
@@ -10,5 +10,5 @@ services:
         sync: false
       - key: GEMINI_API_KEY
         sync: false
-      - key: SUPPORTMIND_CONFIG_PATH
-        value: config/supportmind.yaml
+      - key: RESOLVEAI_CONFIG_PATH
+        value: config/resolveai.yaml

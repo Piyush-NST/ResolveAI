@@ -6,9 +6,9 @@ import uuid
 from langgraph.checkpoint.sqlite import SqliteSaver
 from langgraph.types import Command
 
-from supportmind.agent.graph import AgentDeps, build_agent_graph
-from supportmind.orders.client import OrdersClient
-from supportmind.orders.db import build_session_factory
+from resolveai.agent.graph import AgentDeps, build_agent_graph
+from resolveai.orders.client import OrdersClient
+from resolveai.orders.db import build_session_factory
 from tests.conftest import FakeLLMClient
 
 
@@ -26,7 +26,7 @@ def understanding(order_id: int, amount: float) -> str:
 
 
 def test_refund_approval_survives_restart_and_resumes_from_checkpoint(agent_config, tmp_path):
-    from supportmind.orders.models import Customer, Order
+    from resolveai.orders.models import Customer, Order
 
     session_factory = build_session_factory(agent_config.paths.orders_db)
     with session_factory() as session:
@@ -69,7 +69,7 @@ def test_refund_approval_survives_restart_and_resumes_from_checkpoint(agent_conf
     approval_id = interrupt_payload["approval_id"]
 
     with session_factory() as session:
-        from supportmind.orders.models import Approval, Refund
+        from resolveai.orders.models import Approval, Refund
 
         approval = session.get(Approval, approval_id)
         assert approval.status == "pending"
@@ -100,7 +100,7 @@ def test_refund_approval_survives_restart_and_resumes_from_checkpoint(agent_conf
     assert "processed a refund" in resumed["final_response"].lower()
 
     with session_factory() as session:
-        from supportmind.orders.models import Approval, Refund
+        from resolveai.orders.models import Approval, Refund
 
         approval = session.get(Approval, approval_id)
         refund = session.get(Refund, approval.refund_id)

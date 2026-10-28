@@ -5,8 +5,8 @@ __pycache__/
 .mypy_cache/
 .DS_Store
 data/processed/*.jsonl
-data/vectorstore/supportmind/*
-!data/vectorstore/supportmind/.gitkeep
+data/vectorstore/resolveai/*
+!data/vectorstore/resolveai/.gitkeep
 data/orders.db
 data/orders.db-*
 data/checkpoints.db

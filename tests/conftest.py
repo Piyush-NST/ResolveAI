@@ -4,9 +4,9 @@ from typing import Any
 
 import pytest
 
-from supportmind.config import load_config
-from supportmind.orders.client import OrdersClient
-from supportmind.orders.db import build_session_factory
+from resolveai.config import load_config
+from resolveai.orders.client import OrdersClient
+from resolveai.orders.db import build_session_factory
 
 
 class FakeLLMClient:
@@ -68,7 +68,7 @@ def make_orders_client(agent_config, *, failure_rate: float = 0.0) -> OrdersClie
 
 @pytest.fixture
 def seeded_order(orders_client, agent_config) -> dict[str, Any]:
-    from supportmind.orders.models import Customer, Order
+    from resolveai.orders.models import Customer, Order
 
     session_factory = build_session_factory(agent_config.paths.orders_db)
     with session_factory() as session:
@@ -84,7 +84,7 @@ def seeded_order(orders_client, agent_config) -> dict[str, Any]:
 
 @pytest.fixture(scope="session")
 def retrieval_service():
-    from supportmind.config import load_config
-    from supportmind.retrieval.pipeline import RetrievalService
+    from resolveai.config import load_config
+    from resolveai.retrieval.pipeline import RetrievalService
 
     return RetrievalService(load_config())

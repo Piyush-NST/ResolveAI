@@ -13,14 +13,14 @@ from langgraph.types import Command
 from evals.judge import score_reply
 from evals.scenarios import SCENARIOS, Scenario
 from evals.simulated_user import next_customer_message
-from supportmind.agent.graph import AgentDeps, build_agent_graph
-from supportmind.config import SupportMindConfig, load_config, load_settings
-from supportmind.llm.client import LLMClient
-from supportmind.orders.client import OrdersClient
-from supportmind.orders.db import build_session_factory
-from supportmind.orders.models import Escalation, Order, Refund
-from supportmind.orders.seed import seed_database
-from supportmind.retrieval.pipeline import RetrievalService
+from resolveai.agent.graph import AgentDeps, build_agent_graph
+from resolveai.config import ResolveAIConfig, load_config, load_settings
+from resolveai.llm.client import LLMClient
+from resolveai.orders.client import OrdersClient
+from resolveai.orders.db import build_session_factory
+from resolveai.orders.models import Escalation, Order, Refund
+from resolveai.orders.seed import seed_database
+from resolveai.retrieval.pipeline import RetrievalService
 
 logger = logging.getLogger(__name__)
 
@@ -57,7 +57,7 @@ def run_scenario(
     graph,
     orders_client: OrdersClient,
     session_factory,
-    config: SupportMindConfig,
+    config: ResolveAIConfig,
     gemini_client: genai.Client,
     used_order_ids: set[int],
 ) -> dict:
@@ -186,7 +186,7 @@ def run_all_scenarios() -> list[dict]:
 
     import tempfile
 
-    tmp_dir = Path(tempfile.mkdtemp(prefix="supportmind_eval_"))
+    tmp_dir = Path(tempfile.mkdtemp(prefix="resolveai_eval_"))
     eval_config = config.model_copy(
         update={
             "paths": config.paths.model_copy(

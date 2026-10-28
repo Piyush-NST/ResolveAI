@@ -1,2 +1,0 @@
-"""SupportMind package."""
-

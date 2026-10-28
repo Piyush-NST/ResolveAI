@@ -1,6 +1,6 @@
-from supportmind.config import load_config
-from supportmind.ingestion.pipeline import build_vector_index
-from supportmind.logging_config import configure_logging
+from resolveai.config import load_config
+from resolveai.ingestion.pipeline import build_vector_index
+from resolveai.logging_config import configure_logging
 
 
 def main() -> None:

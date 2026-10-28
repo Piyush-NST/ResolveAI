@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from supportmind.agent.tools import refund_idempotency_key, refund_initiate
+from resolveai.agent.tools import refund_idempotency_key, refund_initiate
 
 
 def test_get_or_create_refund_is_idempotent(orders_client, seeded_order):
@@ -13,7 +13,7 @@ def test_get_or_create_refund_is_idempotent(orders_client, seeded_order):
     assert first.id == second.id
 
     with orders_client.session_factory() as session:
-        from supportmind.orders.models import Refund
+        from resolveai.orders.models import Refund
 
         rows = session.query(Refund).filter_by(idempotency_key=key).all()
         assert len(rows) == 1
@@ -32,7 +32,7 @@ def test_double_refund_tool_call_does_not_double_refund(orders_client, seeded_or
     assert first_result.data["refund_id"] == second_result.data["refund_id"]
 
     with orders_client.session_factory() as session:
-        from supportmind.orders.models import Refund
+        from resolveai.orders.models import Refund
 
         rows = session.query(Refund).filter_by(order_id=order_id).all()
         assert len(rows) == 1

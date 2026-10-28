@@ -1,7 +1,7 @@
-from supportmind.config import load_config
-from supportmind.logging_config import configure_logging
-from supportmind.orders.db import build_session_factory
-from supportmind.orders.seed import seed_database
+from resolveai.config import load_config
+from resolveai.logging_config import configure_logging
+from resolveai.orders.db import build_session_factory
+from resolveai.orders.seed import seed_database
 
 
 def main() -> None:
