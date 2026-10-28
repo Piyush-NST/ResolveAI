@@ -1,4 +1,4 @@
-# SupportMind
+# ResolveAI
 
 **SupportMind** is a customer-support system that goes beyond answering questions: it **resolves**
 tickets end-to-end. It combines a hybrid-retrieval RAG copilot (semantic + BM25 + cross-encoder
